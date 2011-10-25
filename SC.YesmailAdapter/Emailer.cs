@@ -9,6 +9,7 @@ using SC.YesMailAdapter.Factory;
 using System;
 using SC.YesMailAdapter.Http;
 using log4net;
+using System.Xml;
 
 #endregion
 
@@ -30,6 +31,11 @@ namespace SC.YesMailAdapter
             var requestExecutor = new HttpRequestCommand();
             var response = requestExecutor.ExecutePost(requestBody);
             return response;
+        }
+
+        private string ParseResponseForStatusUrl(string response)
+        {
+            return "test";
         }
 
         public string CheckStatus(string url)

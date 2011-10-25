@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="https://services.yesmail.com"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns="https://services.yesmail.com"
+           elementFormDefault="qualified"
+           jaxb:version="2.0"
+           version="1.0">
+
+    <xs:simpleType name="StatusCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="CANCELLED"/>
+            <xs:enumeration value="COMPLETED"/>
+            <xs:enumeration value="ERROR"/>
+            <xs:enumeration value="INPROGRESS"/>
+            <xs:enumeration value="PAUSED"/>
+            <xs:enumeration value="RETRY"/>
+            <xs:enumeration value="SUBMITTED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="StatusRequestDetails">
+        <xs:sequence>
+            <xs:element name="method" minOccurs="0" maxOccurs="1" type="xs:string" nillable="false"/>
+            <xs:element name="uri" minOccurs="0" maxOccurs="1" type="xs:string" nillable="false"/>
+            <xs:element name="requestTime" type="xs:dateTime"
+                        minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>
+                        The time of the original request in GMT.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="userAgent" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="remoteIp" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="charEncoding" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="contentLength" minOccurs="0" maxOccurs="1" type="xs:int"/>
+            <xs:element name="contentType" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="requestBodyUri" type="xs:anyURI" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="companyName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="createdBy" minOccurs="0" maxOccurs="1" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="statusType">
+        <xs:sequence>
+            <xs:element name="companyName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="trackingId" type="xs:string"
+                        minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>
+                        trackingId is a GUID, ie an unique identifier
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusCode" type="StatusCode"
+                        minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="statusMessage" type="xs:string"
+                        minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>
+                        A textual message that corresponds to the status above. May contain error messages or other
+                        progress information. Optional.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="lastUpdateTime" type="xs:dateTime"
+                        minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>
+                        The time of the last update to this status in GMT.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusURI" type="xs:anyURI"
+                        minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="statusNoWaitURI" type="xs:anyURI"
+                        minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="finalResourceURI" type="xs:anyURI"
+                            minOccurs="0" maxOccurs="1" nillable="false">
+                    <xs:annotation>
+                        <xs:documentation>
+                            The final URI to the completed resource processing request. Typically, when submitting an
+                            asynchronous request, this field will be present with the canonical URI at the completion of
+                            processing. Optional.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:element name="requestDetails" type="StatusRequestDetails"
+                        minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:annotation>
+                    <xs:documentation>
+                        Contains details about the original request. This data may not be available after 4 days.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="schemaVersion" type="xs:decimal"/>
+    </xs:complexType>
+
+    <xs:complexType name="statuses">
+        <xs:sequence>
+            <xs:element name="status" type="statusType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="batchSize" type="xs:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+        </xs:sequence>
+        <xs:attribute name="schemaVersion" type="xs:decimal"/>
+    </xs:complexType>
+
+
+    <xs:element name="status" type="statusType"/>
+    <xs:element name="statuses" type="statuses" nillable="false"/>
+
+</xs:schema>

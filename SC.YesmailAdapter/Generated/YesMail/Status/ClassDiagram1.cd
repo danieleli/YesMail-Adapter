@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="statusType">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <Members>
+      <Field Name="companyNameField" Hidden="true" />
+      <Field Name="finalResourceURIField" Hidden="true" />
+      <Field Name="lastUpdateTimeField" Hidden="true" />
+      <Field Name="lastUpdateTimeFieldSpecified" Hidden="true" />
+      <Field Name="requestDetailsField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+      <Field Name="statusCodeField" Hidden="true" />
+      <Field Name="statusMessageField" Hidden="true" />
+      <Field Name="statusNoWaitURIField" Hidden="true" />
+      <Field Name="statusURIField" Hidden="true" />
+      <Field Name="trackingIdField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACgAAACAAggEABAEIAAFIAAIAIAUAEABgAAAACABBEI=</HashCode>
+      <FileName>Generated\YesMail\Status\status.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="statusCode" />
+      <Property Name="requestDetails" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StatusRequestDetails">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="charEncodingField" Hidden="true" />
+      <Field Name="companyNameField" Hidden="true" />
+      <Field Name="contentLengthField" Hidden="true" />
+      <Field Name="contentLengthFieldSpecified" Hidden="true" />
+      <Field Name="contentTypeField" Hidden="true" />
+      <Field Name="createdByField" Hidden="true" />
+      <Field Name="methodField" Hidden="true" />
+      <Field Name="remoteIpField" Hidden="true" />
+      <Field Name="requestBodyUriField" Hidden="true" />
+      <Field Name="requestTimeField" Hidden="true" />
+      <Field Name="requestTimeFieldSpecified" Hidden="true" />
+      <Field Name="uriField" Hidden="true" />
+      <Field Name="userAgentField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAARQAIA4CACAAICACAAIAMACIEDABAAQAEAABAEA=</HashCode>
+      <FileName>Generated\YesMail\Status\status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="statuses">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="batchSizeField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+      <Field Name="statusField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAgAQAAAIAAAAAAIAAAEAAAAAAAAAAAAIAI=</HashCode>
+      <FileName>Generated\YesMail\Status\status.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="status" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="StatusCode">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAAAAAwIAAAAAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Generated\YesMail\Status\status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -31,3 +31,4 @@ _ReSharper*/
 HTML_CONTENT
 *_deploy/
 Deploy/
+App.config

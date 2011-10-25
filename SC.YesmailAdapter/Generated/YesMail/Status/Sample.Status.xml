@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<yesws:status xmlns:yesws="https://services.yesmail.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://services.yesmail.com docs/xsd/status.xsd">
+  <yesws:trackingId>852df928-13df-45bb-ae6c-895d9159695e</yesws:trackingId>
+  <yesws:statusCode>SUBMITTED</yesws:statusCode>
+  <yesws:statusMessage>Task has been accepted for processing</yesws:statusMessage>
+  <yesws:lastUpdateTime>2011-10-25T19:15:26.699Z</yesws:lastUpdateTime>
+  <yesws:statusURI>https://services.yesmail.com/enterprise/status/852df928-13df-45bb-ae6c-895d9159695e</yesws:statusURI>
+  <yesws:statusNoWaitURI>https://services.yesmail.com/enterprise/statusNoWait/852df928-13df-45bb-ae6c-895d9159695e</yesws:statusNoWaitURI>
+</yesws:status>

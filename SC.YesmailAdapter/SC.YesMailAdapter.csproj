@@ -46,7 +46,10 @@
   <ItemGroup>
     <Compile Include="Configuration\ApiSettings.cs" />
     <Compile Include="Emailer.cs" />
-    <Compile Include="Generated\YesMail\subscribeandsend.cs">
+    <Compile Include="Generated\YesMail\Status\status.cs">
+      <DependentUpon>status.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\YesMail\SubscribeAndSend\subscribeandsend.cs">
       <DependentUpon>subscribeandsend.xsd</DependentUpon>
       <SubType>code</SubType>
     </Compile>
@@ -59,25 +62,31 @@
     <Compile Include="Factory\SubscribeAndSendMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Generated\YesMail\attributes.xsd">
+    <None Include="Generated\YesMail\Status\ClassDiagram1.cd" />
+    <None Include="Generated\YesMail\SubscribeAndSend\attributes.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Generated\YesMail\ClassDiagram1.cd" />
-    <None Include="Generated\YesMail\sidetable.xsd">
+    <None Include="Generated\YesMail\SubscribeAndSend\ClassDiagram1.cd" />
+    <None Include="Generated\YesMail\SubscribeAndSend\sidetable.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Generated\YesMail\subscribeandsend.xsd">
+    <None Include="Generated\YesMail\Status\status.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Generated\YesMail\subscriber.xsd">
+    <None Include="Generated\YesMail\SubscribeAndSend\subscribeandsend.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Generated\YesMail\subscribermessage.xsd">
+    <None Include="Generated\YesMail\SubscribeAndSend\subscriber.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generated\YesMail\SubscribeAndSend\subscribermessage.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Generated\YesMail\Status\Sample.Status.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
