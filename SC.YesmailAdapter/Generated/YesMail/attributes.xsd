@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="https://services.yesmail.com"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns="https://services.yesmail.com"
+           elementFormDefault="qualified"
+           jaxb:version="2.0"
+           version="1.0">
+    
+    <xs:complexType name="attributes">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="attribute" id="attribute">
+                 <xs:complexType>
+                     <xs:sequence>
+                         <xs:element name="name" id="name" type="xs:string" />
+                         <xs:element name="value" id="value" type="xs:string" />
+                     </xs:sequence>
+                 </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="schemaVersion" type="xs:decimal" />
+    </xs:complexType>
+</xs:schema>

@@ -28,10 +28,8 @@ namespace SC.YesMailAdapter.Http
 
         #endregion //-- Members and Constructors --
 
-        public string ExecuteRequest(string messageBody)
+        public string ExecutePost(string messageBody)
         {
-            _logger.Debug("\n\nMessageBody\n----------\n" + messageBody);
-
             var webRequest = RequestHelper.CreateWebRequest(_apiSettings.Url, "POST", "application/xml");
             if (_apiSettings.UseProxy)
             {
@@ -41,8 +39,28 @@ namespace SC.YesMailAdapter.Http
             var headers = GetHeaders();
             RequestHelper.SetHeaders(headers, webRequest);
 
+            RequestHelper.SetCredentialCache(webRequest, _apiSettings.Url, _apiSettings.Domain, _apiSettings.UserName, _apiSettings.Password);
+            
             LogRequest(webRequest);
             var rtnValue = RequestHelper.GetResponse(webRequest, messageBody);
+            return rtnValue;
+        }
+
+        public string ExecuteGet(string url)
+        {
+            var webRequest = RequestHelper.CreateWebRequest(url, "GET", "application/xml");
+            if (_apiSettings.UseProxy)
+            {
+                SetProxy(webRequest);
+            }
+
+            var headers = GetHeaders();
+            RequestHelper.SetHeaders(headers, webRequest);
+
+            RequestHelper.SetCredentialCache(webRequest, _apiSettings.Url, _apiSettings.Domain, _apiSettings.UserName, _apiSettings.Password);
+
+            LogRequest(webRequest);
+            var rtnValue = RequestHelper.GetResponse(webRequest);
             return rtnValue;
         }
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="https://services.yesmail.com"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns="https://services.yesmail.com"
+           elementFormDefault="qualified"
+           jaxb:version="2.0"
+           version="1.0">
+    <xs:include schemaLocation="attributes.xsd"/>
+
+    <xs:simpleType name="GlobalSubscriptionState">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="UNSUBSCRIBED" />
+            <xs:enumeration value="SUBSCRIBED" />
+            <xs:enumeration value="REFERRED" />
+            <xs:enumeration value="DEAD" />
+            <xs:enumeration value="REVIVE" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="subscriberBase">
+        <xs:annotation>
+            <xs:appinfo>
+                <jaxb:class name="SubscriberBase" 
+                      implClass="com.yesmail.webservices.model.Subscriber"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="userId" type="xs:int" minOccurs="0"/>
+            <xs:element name="subscriptionState" id="subscriptionState" 
+                        type="GlobalSubscriptionState" 
+                        minOccurs="0" maxOccurs="1"/>
+            <xs:element name="allowResubscribe" minOccurs="1"
+                        type="xs:boolean" default="false"/>
+            <xs:element name="division" minOccurs="0">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="subscribed" 
+                                          type="xs:boolean" />
+                            <xs:attribute name="member" 
+                                          type="xs:boolean" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="attributes" type="attributes" nillable="false" />
+        </xs:all>
+        <xs:attribute name="schemaVersion" type="xs:decimal" />
+    </xs:complexType>
+    <xs:element name="subscriber" type="subscriberBase" nillable="false" />
+</xs:schema>

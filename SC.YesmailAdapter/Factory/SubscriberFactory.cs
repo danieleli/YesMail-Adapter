@@ -1,56 +1,65 @@
-﻿using SC.YesMailAdapter.Generated;
+﻿
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace SC.YesMailAdapter.Factory
 {
     public class SubscriberFactory
     {
-        public static subscribeAndSendSubscriber CreateSubscriber(EmailMessageDto messageDto)
+
+        private static attributes GetPropertiesAsAttributeArray(
+            object dto)
         {
-            var subscriber = new subscribeAndSendSubscriber
+            var list = new List<attributesAttribute>();
+
+            
+            foreach (PropertyInfo property in dto.GetType().GetProperties())
             {
-                allowResubscribe = @"true",
-                attributes = GetSubcriberAttributes(messageDto),
-                division = @"Transactional",
-                subscriptionState = @"SUBSCRIBED"
+                var propertyValue = property.GetValue(dto, null);
+                if (propertyValue != null)
+                {
+                    list.Add(new attributesAttribute()
+                                 {
+                                     name = property.Name.ToLower(),
+                                     value = property.GetValue(dto, null).ToString()
+                                 });
+                }
+            }
+            var rtn = new attributes() {attribute = list.ToArray()};
+            return rtn;
+
+        }
+
+        public static subscribeAndSend CreateSendAndSubcribeMessage(object messageDto, int messageId)
+        {
+            bool allowResubscribe = true;
+            var division = new subscriberBaseDivision() { };
+            var subscriptionState = GlobalSubscriptionState.SUBSCRIBED;
+
+            var subscriber = SubscriberFactory.CreateSubscriber(messageDto, allowResubscribe, division, subscriptionState);
+
+            var message = new subscribeAndSend
+            {
+                subscriber = subscriber,
+                subscriberMessage = new subscriberMessage() { masterId = messageId }
+            };
+            return message;
+        }
+
+
+
+        public static subscriberBase CreateSubscriber(object messageDto, bool allowResubscribe, subscriberBaseDivision division, GlobalSubscriptionState subscriptionState)
+        {
+            var subscriber = new subscriberBase()
+            { 
+                division = division,
+                allowResubscribe = allowResubscribe,
+                attributes = GetPropertiesAsAttributeArray(messageDto),
+                subscriptionState = subscriptionState
             };
 
 
             return subscriber;
-        }
-
-        private static subscribeAndSendSubscriberAttributesAttribute[] GetSubcriberAttributes(
-    EmailMessageDto messageDto)
-        {
-            // Todo: pass in object for DTO and use Reflection to create attributes.
-            var Email =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "email", value = messageDto.Email };
-
-            var Name1 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "name1", value = messageDto.Name1 };
-
-            var Url1 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "url1", value = messageDto.Url1 };
-
-            var Url2 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "url2", value = messageDto.Url2 };
-
-            var Url3 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "url3", value = messageDto.Url3 };
-
-            var Generic1 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "generic1", value = messageDto.Generic1 };
-
-            var Generic2 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "generic2", value = messageDto.Generic2 };
-
-            var Generic3 =
-                new subscribeAndSendSubscriberAttributesAttribute { name = "generic3", value = messageDto.Generic3 };
-
-            return new[]
-                       {
-                           Email, Name1,
-                           Url1, Url2, Url3, Generic1, Generic2, Generic3
-                       };
         }
     }
 }

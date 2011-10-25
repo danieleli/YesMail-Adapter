@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMail", "SC.YesMail\SC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMail.Direct", "SC.YesMail.Direct\SC.YesMail.Direct.csproj", "{8FA77259-DE59-4301-A297-E5318DD0D3A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMailAdapter", "SC.YesMailAdapter\SC.YesMailAdapter.csproj", "{661564D7-1BDC-4F36-BAF5-FD4E358007C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMailAdapter", "SC.YesmailAdapter\SC.YesMailAdapter.csproj", "{661564D7-1BDC-4F36-BAF5-FD4E358007C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareSingularity.YesMailClient", "SoftwareSingularity.YesMailClient\SoftwareSingularity.YesMailClient.csproj", "{F7C46173-B981-495C-A599-97E80AD169C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesmailAdapter._Test", "SC.YesmailAdapter._Test\SC.YesmailAdapter._Test.csproj", "{810B6628-9855-4BD4-B194-BBC64C9211D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.SampleLibrary", "SC.SampleLibrary\SC.SampleLibrary.csproj", "{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,16 @@ Global
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|x86.ActiveCfg = Release|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9F683DB9-2CC4-4CDA-B1C4-4A05B4C324A9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

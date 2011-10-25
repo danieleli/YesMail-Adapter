@@ -47,16 +47,38 @@
     <Compile Include="Configuration\ApiSettings.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="EmailMessageDto.cs" />
+    <Compile Include="Generated\YesMail\subscribeandsend.cs">
+      <DependentUpon>subscribeandsend.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
     <Compile Include="Http\HttpRequestExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Generated\SubscribeAndSend.cs" />
     <Compile Include="Configuration\ProxySettings.cs" />
-    <Compile Include="Factory\RequestBodyFactory.cs" />
+    <Compile Include="Factory\YesMailSerializer.cs" />
     <Compile Include="Http\RequestHelper.cs" />
     <Compile Include="Factory\SubscriberFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Generated\YesMail\attributes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generated\YesMail\ClassDiagram1.cd" />
+    <None Include="Generated\YesMail\sidetable.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generated\YesMail\subscribeandsend.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generated\YesMail\subscriber.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generated\YesMail\subscribermessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generated\Sws\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

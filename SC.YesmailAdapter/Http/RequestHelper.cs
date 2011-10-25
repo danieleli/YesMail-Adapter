@@ -31,6 +31,24 @@ namespace SC.YesMailAdapter.Http
             return response;
         }
 
+        public static string GetResponse(HttpWebRequest webRequest)
+        {
+            string response = null;
+
+            using (var httpWebResponse = (HttpWebResponse)webRequest.GetResponse())
+            {
+                var encoding = Encoding.GetEncoding(1252); //1252 for Windows operating system (windows-1252);
+                using (var reader = new StreamReader(httpWebResponse.GetResponseStream(), encoding))
+                {
+                    response = reader.ReadToEnd();
+                    reader.Close();
+                }
+                httpWebResponse.Close();
+            }
+
+            return response;
+        }
+
         public static HttpWebRequest CreateWebRequest(string uri, string requestMethod, string contentType)
         {
             var webRequest = (HttpWebRequest) WebRequest.Create(uri);

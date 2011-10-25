@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="subscriberBase">
+    <Position X="4" Y="2.25" Width="2.5" />
+    <Members>
+      <Field Name="allowResubscribeField" Hidden="true" />
+      <Field Name="attributesField" Hidden="true" />
+      <Field Name="divisionField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+      <Field Name="subscriptionStateField" Hidden="true" />
+      <Field Name="subscriptionStateFieldSpecified" Hidden="true" />
+      <Field Name="userIdField" Hidden="true" />
+      <Field Name="userIdFieldSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAiAIAwACAAAEAAIAAAMEAQABABIAAAAAAI=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="subscriptionState" />
+      <Property Name="division" />
+      <Property Name="attributes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="subscriberBaseDivision">
+    <Position X="10.5" Y="2" Width="2" />
+    <Members>
+      <Field Name="memberField" Hidden="true" />
+      <Field Name="memberFieldSpecified" Hidden="true" />
+      <Field Name="subscribedField" Hidden="true" />
+      <Field Name="subscribedFieldSpecified" Hidden="true" />
+      <Field Name="valueField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAARAAAAAAEAiAAAAAAAAAACAAAACAIgAAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="keyValue">
+    <Position X="14.25" Y="6.75" Width="1.5" />
+    <Members>
+      <Field Name="nameField" Hidden="true" />
+      <Field Name="valueField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAGACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="row">
+    <Position X="7.25" Y="6.75" Width="1.5" />
+    <Members>
+      <Field Name="columnsField" Hidden="true" />
+      <Field Name="idsField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAACAAAAAAAAgA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="idsField" />
+      <Property Name="columns" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="rowIds">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <Members>
+      <Field Name="idField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAgA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="id" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="rowColumns">
+    <Position X="10.5" Y="6.5" Width="1.5" />
+    <Members>
+      <Field Name="columnField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="column" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="attributes">
+    <Position X="10.5" Y="4" Width="2.25" />
+    <Members>
+      <Field Name="attributeField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAgAAAAAIAAAEAAQAAAAAAAAAAAI=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="attribute" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="attributesAttribute">
+    <Position X="14" Y="4.25" Width="1.75" />
+    <Members>
+      <Field Name="nameField" Hidden="true" />
+      <Field Name="valueField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAGACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="subscriberMessage">
+    <Position X="4" Y="5" Width="2.25" />
+    <Members>
+      <Field Name="attributesField" Hidden="true" />
+      <Field Name="masterIdField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAgAAAAAAAAIAAAEEAABAAAAAAAABAI=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="attributes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="sideTable">
+    <Position X="1.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="table" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="sideTableTable">
+    <Position X="4" Y="6.75" Width="2.25" />
+    <Members>
+      <Field Name="nameField" Hidden="true" />
+      <Field Name="rowsField" Hidden="true" />
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAIBAAAAIAAAEAACAAAAAAAAAAAI=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="rows" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="subscribeAndSend">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <Members>
+      <Field Name="schemaVersionField" Hidden="true" />
+      <Field Name="schemaVersionFieldSpecified" Hidden="true" />
+      <Field Name="sideTableField" Hidden="true" />
+      <Field Name="subscriberField" Hidden="true" />
+      <Field Name="subscriberMessageField" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAAAgAIQAAAAAAAAAIAAAEAAQAAAAAQAAAAAI=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="subscriber" />
+      <Property Name="subscriberMessage" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="sideTable" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="GlobalSubscriptionState">
+    <Position X="7.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAIAAAAAAAEAAgAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

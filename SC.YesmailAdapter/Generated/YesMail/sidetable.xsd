@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="https://services.yesmail.com"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns="https://services.yesmail.com" elementFormDefault="qualified"
+  jaxb:version="2.0" version="1.0">
+
+  <xs:complexType name="keyValue">
+    <xs:sequence>
+      <xs:element name="name" id="key" type="xs:string" />
+      <xs:element name="value" id="value" type="xs:string" />
+    </xs:sequence>        
+  </xs:complexType> 
+ 
+  <xs:complexType name="row">
+    <xs:sequence>
+      <xs:element name="ids" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="id" id="id" type="keyValue" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="columns" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="column" id="column" type="keyValue" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sideTable">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="table" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="name" type="xs:string" minOccurs="1"
+              maxOccurs="1" />
+            <xs:element name="rows" minOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="row" type="row" 
+                              minOccurs="1" maxOccurs="unbounded" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+          <xs:attribute name="schemaVersion" type="xs:decimal" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="sideTable" type="sideTable" nillable="false"/>
+</xs:schema>

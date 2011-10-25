@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using SC.YesMailAdapter;
+using SC.YesMailAdapter.Factory;
 
 namespace SC.YesmailAdapter._Test
 {
@@ -14,17 +15,94 @@ namespace SC.YesmailAdapter._Test
         {
             log4net.Config.XmlConfigurator.Configure();
         }
+        //[Test]
+        //public void Test1()
+        //{
+        //    // Arrange
+        //    var emailHelper = new Emailer();
+        //    var messageId = "1256210";
+        //    var dto = new API_PROMOS()
+        //                  {
+        //                      //expirationdate = DateTime.Now.ToString("ddhhmmssff"), 
+        //                      generic1 = "www.yahoo.com",
+        //                      name1 = "test",
+        //                      url1 = "www.google.com",
+        //                      consumerid = "343223",
+        //                      email = "dschlossberg@studiocom.com"//,
+        //                      //  messagemasterid = messageId
+        //                  };
+
+        //    // Act
+
+        //    var response = emailHelper.SendEmail(dto, messageId);
+
+        //    // Assert
+        //}
+
+
         [Test]
-        public void Test1()
+        public void SendMail()
+        {
+            var emailHelper = new Emailer();
+            var messageId = 1256210;
+            var dto = GetTestMessageDto("test1");
+
+            var sendAndSubscribe = SubscriberFactory.CreateSendAndSubcribeMessage(dto, messageId);
+
+            // Act
+            var response = emailHelper.SendEmail(sendAndSubscribe);
+            //var response = emailHelper.SendEmail(dto, messageId);
+        }
+
+        [Test]
+        public void Serialization()
         {
             // Arrange
             var emailHelper = new Emailer();
-            var dto = new EmailMessageDto() {Email = "email@test.ocm", Generic1 = "www.yahoo.com", MessageMasterId = "4324", Url1 = "www.google.com"};
+            var messageId = 3332324;
+            var dto = GetTestMessageDto("test1");
 
             // Act
-            var response = emailHelper.SendEmail(dto);
+            var sendAndSubscribe = SubscriberFactory.CreateSendAndSubcribeMessage(dto, messageId);
 
-            // Assert
         }
+
+        public TestMessageDto GetTestMessageDto(string seed)
+        {
+            var dto = new TestMessageDto()
+            {
+                ExpirationDate = DateTime.Now.ToString("ddhhmmssff"),
+                Generic1 = "www.generic1" + seed + ".com",
+                Generic2 = "www.generic2" + seed + ".com",
+                Name1 = "name1" + seed,
+                Url1 = "www.url1" + seed + ".com",
+                ConsumerId = "343223",
+            };
+
+            return dto;
+        }
+
+        //[Test]
+        //public void Henri()
+        //{
+        //    // Arrange
+        //    var emailHelper = new Emailer();
+        //    var messageId = "1256210";
+        //    var dto = new EmailMessageDto()
+        //    {
+        //        Generic1 = "www.yahoo.com",
+        //        Name1 = "test",
+        //        Url1 = "www.google.com",
+        //        MessageMasterId = "1256210",
+        //        Email = "dschlossberg@studiocom.com"//,
+        //        //  messagemasterid = messageId
+        //    };
+
+        //    // Act
+
+        //    var response = emailHelper.SendEmail(dto, typeof(dto), messageId);
+
+        //    // Assert
+        //}
     }
 }
