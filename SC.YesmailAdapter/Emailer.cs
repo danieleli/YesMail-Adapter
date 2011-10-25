@@ -27,7 +27,7 @@ namespace SC.YesMailAdapter
         public string MakeRequest(string requestBody)
         {
             _logger.Info("\n\nEmail RequestBody\n----------\n" + requestBody);
-            var requestExecutor = new HttpRequestExecutor();
+            var requestExecutor = new HttpRequestCommand();
             var response = requestExecutor.ExecutePost(requestBody);
             return response;
         }
@@ -35,7 +35,7 @@ namespace SC.YesMailAdapter
         public string CheckStatus(string url)
         {
             _logger.Info("\n\nCheck Email Status Url\n----------\n" + url);
-            var requestExecutor = new HttpRequestExecutor();
+            var requestExecutor = new HttpRequestCommand();
             var response = requestExecutor.ExecuteGet(url);
             return response;
         }
@@ -49,7 +49,7 @@ namespace SC.YesMailAdapter
                 var requestBody = YesMailSerializer.CreateRequestBody(subscribeAndSend);
                 _logger.Info("\n\nEmail RequestBody\n----------\n" + requestBody);
                 
-                var httpHelper = new HttpRequestExecutor();
+                var httpHelper = new HttpRequestCommand();
                 var response = httpHelper.ExecutePost(requestBody);
                 _logger.Debug("\n\nResponse: \n-----------\n" + response);
                 

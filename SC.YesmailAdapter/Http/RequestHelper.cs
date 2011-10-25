@@ -3,8 +3,8 @@
 using System;
 using System.Collections.Specialized;
 using System.IO;
-using System.Net;
 using System.Text;
+using System.Net;
 
 #endregion
 
@@ -15,8 +15,11 @@ namespace SC.YesMailAdapter.Http
         public static string GetResponse(HttpWebRequest webRequest, string requestBody)
         {
             string response = null;
-            WriteRequstStream(ref webRequest, requestBody);
-
+            if(!string.IsNullOrEmpty(requestBody))
+            {
+                WriteRequestBody(ref webRequest, requestBody);    
+            }
+            
             using (var httpWebResponse = (HttpWebResponse) webRequest.GetResponse())
             {
                 var encoding = Encoding.GetEncoding(1252); //1252 for Windows operating system (windows-1252);
@@ -33,19 +36,7 @@ namespace SC.YesMailAdapter.Http
 
         public static string GetResponse(HttpWebRequest webRequest)
         {
-            string response = null;
-
-            using (var httpWebResponse = (HttpWebResponse)webRequest.GetResponse())
-            {
-                var encoding = Encoding.GetEncoding(1252); //1252 for Windows operating system (windows-1252);
-                using (var reader = new StreamReader(httpWebResponse.GetResponseStream(), encoding))
-                {
-                    response = reader.ReadToEnd();
-                    reader.Close();
-                }
-                httpWebResponse.Close();
-            }
-
+            string response = GetResponse(webRequest, null);
             return response;
         }
 
@@ -76,24 +67,13 @@ namespace SC.YesMailAdapter.Http
 
         public static string EncodeTo64(string toEncode)
         {
-            var toEncodeAsBytes
-                = Encoding.ASCII.GetBytes(toEncode);
-            var returnValue
-                = Convert.ToBase64String(toEncodeAsBytes);
+            var toEncodeAsBytes = Encoding.ASCII.GetBytes(toEncode);
+            var returnValue = Convert.ToBase64String(toEncodeAsBytes);
             return returnValue;
         }
 
-        public static void SetCredentialCache(HttpWebRequest webrequest, string uri, string apiDomain,
-                                              string apiUserName, string apiPassword)
-        {
-            var credentialCache =
-                new CredentialCache();
-            credentialCache.Add(new Uri(uri), "Basic",
-                                new NetworkCredential(apiUserName, apiPassword, apiDomain));
-            webrequest.Credentials = credentialCache;
-        }
 
-        private static void WriteRequstStream(ref HttpWebRequest webrequest, string requestBody)
+        private static void WriteRequestBody(ref HttpWebRequest webrequest, string requestBody)
         {
             var bytes = Encoding.ASCII.GetBytes(requestBody);
             webrequest.ContentLength = bytes.Length;
