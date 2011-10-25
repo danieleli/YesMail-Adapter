@@ -25,7 +25,7 @@ namespace SC.YesmailAdapter._Test
             var messageId = 1256210;
             var dto = GetTestMessageDto("test1");
 
-            var sendAndSubscribe = SubscriberFactory.CreateSendAndSubcribeMessage(dto, messageId);
+            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
             // Act
             var response = emailHelper.SendEmail(sendAndSubscribe);
@@ -41,8 +41,9 @@ namespace SC.YesmailAdapter._Test
             var dto = GetTestMessageDto("test1");
 
             // Act
-            var sendAndSubscribe = SubscriberFactory.CreateSendAndSubcribeMessage(dto, messageId);
-
+            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+            var serializedObject = YesMailSerializer.CreateRequestBody(sendAndSubscribe);
+            _logger.Info(serializedObject);
         }
 
         public TestMessageDto GetTestMessageDto(string seed)

@@ -4,11 +4,10 @@ using System.Reflection;
 
 namespace SC.YesMailAdapter.Factory
 {
-    public class SubscriberFactory
+    public class SubscribeAndSendMapper
     {
 
-        private static attributes GetPropertiesAsAttributeArray(
-            object dto)
+        private static attributes GetPropertiesAsAttributeArray(object dto)
         {
             var list = new List<attributesAttribute>();
 
@@ -33,10 +32,10 @@ namespace SC.YesMailAdapter.Factory
         public static subscribeAndSend CreateSendAndSubcribeMessage(object messageDto, int messageId)
         {
             bool allowResubscribe = true;
-            var division = new subscriberBaseDivision() { };
+            var division = new subscriberBaseDivision() { Value = "Transactional"};
             var subscriptionState = GlobalSubscriptionState.SUBSCRIBED;
 
-            var subscriber = SubscriberFactory.CreateSubscriber(messageDto, allowResubscribe, division, subscriptionState);
+            var subscriber = SubscribeAndSendMapper.CreateSubscriber(messageDto, allowResubscribe, division, subscriptionState);
 
             var message = new subscribeAndSend
             {
@@ -46,9 +45,7 @@ namespace SC.YesMailAdapter.Factory
             return message;
         }
 
-
-
-        public static subscriberBase CreateSubscriber(object messageDto, bool allowResubscribe, subscriberBaseDivision division, GlobalSubscriptionState subscriptionState)
+        private static subscriberBase CreateSubscriber(object messageDto, bool allowResubscribe, subscriberBaseDivision division, GlobalSubscriptionState subscriptionState)
         {
             var subscriber = new subscriberBase()
             { 

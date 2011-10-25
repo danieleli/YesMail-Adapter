@@ -56,7 +56,7 @@
     <Compile Include="Configuration\ProxySettings.cs" />
     <Compile Include="Factory\YesMailSerializer.cs" />
     <Compile Include="Http\RequestHelper.cs" />
-    <Compile Include="Factory\SubscriberFactory.cs" />
+    <Compile Include="Factory\SubscribeAndSendMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Generated\YesMail\attributes.xsd">
