@@ -10,7 +10,6 @@ namespace SC.YesmailAdapter._Test
         string MasterMessageId { get; set; }
         string ConsumerId { get; set; }
         string Email { get; set; }
-
     }
 
     public class MessageHistory : IMessageDto

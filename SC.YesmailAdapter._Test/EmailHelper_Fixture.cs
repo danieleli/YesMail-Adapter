@@ -5,40 +5,18 @@ using System.Text;
 using NUnit.Framework;
 using SC.YesMailAdapter;
 using SC.YesMailAdapter.Factory;
+using log4net;
 
 namespace SC.YesmailAdapter._Test
 {
     [TestFixture]
     public class EmailHelper_Fixture
     {
+        public static ILog _logger = LogManager.GetLogger(typeof(Emailer));
         public EmailHelper_Fixture()
         {
             log4net.Config.XmlConfigurator.Configure();
         }
-        //[Test]
-        //public void Test1()
-        //{
-        //    // Arrange
-        //    var emailHelper = new Emailer();
-        //    var messageId = "1256210";
-        //    var dto = new API_PROMOS()
-        //                  {
-        //                      //expirationdate = DateTime.Now.ToString("ddhhmmssff"), 
-        //                      generic1 = "www.yahoo.com",
-        //                      name1 = "test",
-        //                      url1 = "www.google.com",
-        //                      consumerid = "343223",
-        //                      email = "dschlossberg@studiocom.com"//,
-        //                      //  messagemasterid = messageId
-        //                  };
-
-        //    // Act
-
-        //    var response = emailHelper.SendEmail(dto, messageId);
-
-        //    // Assert
-        //}
-
 
         [Test]
         public void SendMail()
@@ -81,28 +59,5 @@ namespace SC.YesmailAdapter._Test
 
             return dto;
         }
-
-        //[Test]
-        //public void Henri()
-        //{
-        //    // Arrange
-        //    var emailHelper = new Emailer();
-        //    var messageId = "1256210";
-        //    var dto = new EmailMessageDto()
-        //    {
-        //        Generic1 = "www.yahoo.com",
-        //        Name1 = "test",
-        //        Url1 = "www.google.com",
-        //        MessageMasterId = "1256210",
-        //        Email = "dschlossberg@studiocom.com"//,
-        //        //  messagemasterid = messageId
-        //    };
-
-        //    // Act
-
-        //    var response = emailHelper.SendEmail(dto, typeof(dto), messageId);
-
-        //    // Assert
-        //}
     }
 }
