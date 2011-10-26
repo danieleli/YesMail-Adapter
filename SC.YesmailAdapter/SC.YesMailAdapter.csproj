@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\SideTableTolkenAttribute.cs" />
+    <Compile Include="Attributes\SubscriberTolkenAttribute.cs" />
     <Compile Include="Configuration\ApiSettings.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="Generated\YesMail\Status\status.cs">

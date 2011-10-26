@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SC.YesMailAdapter
 {
-    interface IMessageDto
+    public interface IMessageDto
     {
+        string MasterMessageId { get; set; }
+        string ConsumerId { get; set; }
+        string Email { get; set; }
     }
 }

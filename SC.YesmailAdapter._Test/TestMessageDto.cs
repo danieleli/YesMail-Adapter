@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SC.YesMailAdapter.Attributes;
+using SC.YesMailAdapter;
 
 namespace SC.YesmailAdapter._Test
 {
-    public interface IMessageDto
-    {
-        string MasterMessageId { get; set; }
-        string ConsumerId { get; set; }
-        string Email { get; set; }
-    }
+
 
     public class MessageHistory : IMessageDto
     {
@@ -29,7 +26,9 @@ namespace SC.YesmailAdapter._Test
         public string ConsumerId { get; set; }
         public string Email { get; set; }
         public string ExpirationDate { get; set; }
+        [SubscriberTolken]
         public string Generic1 { get; set; }
+        [SideTableTolken(TableName = "api_promos")]
         public string Generic2 { get; set; }
         public string Generic3 { get; set; }
         public string Name1 { get; set; }

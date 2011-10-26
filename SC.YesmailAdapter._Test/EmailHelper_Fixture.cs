@@ -23,7 +23,7 @@ namespace SC.YesmailAdapter._Test
         {
             var emailHelper = new Emailer();
             var messageId = 1256210;
-            var dto = GetTestMessageDto("test1");
+            var dto = DtoFactory.CreateTestMessageDto("test1");
 
             var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
@@ -32,33 +32,8 @@ namespace SC.YesmailAdapter._Test
             //var response = emailHelper.SendEmail(dto, messageId);
         }
 
-        [Test]
-        public void Serialization()
-        {
-            // Arrange
-            var emailHelper = new Emailer();
-            var messageId = 3332324;
-            var dto = GetTestMessageDto("test1");
 
-            // Act
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
-            var serializedObject = YesMailSerializer.CreateRequestBody(sendAndSubscribe);
-            _logger.Info(serializedObject);
-        }
 
-        public TestMessageDto GetTestMessageDto(string seed)
-        {
-            var dto = new TestMessageDto()
-            {
-                ExpirationDate = DateTime.Now.ToString("ddhhmmssff"),
-                Generic1 = "www.generic1" + seed + ".com",
-                Generic2 = "www.generic2" + seed + ".com",
-                Name1 = "name1" + seed,
-                Url1 = "www.url1" + seed + ".com",
-                ConsumerId = "343223",
-            };
 
-            return dto;
-        }
     }
 }

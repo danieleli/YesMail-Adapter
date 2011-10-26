@@ -15,7 +15,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AQAAAACAAAiAIAwACAAAEAAIAAAMEAQABABIAAAAAAI=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="subscriptionState" />
@@ -34,7 +34,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AACAAAARAAAAAAEAiAAAAAAAAAACAAAACAIgAAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="keyValue">
@@ -45,7 +45,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAGACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="row">
@@ -56,7 +56,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAACAAAAAAAAgA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="idsField" />
@@ -70,7 +70,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAgA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="id" />
@@ -83,7 +83,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="column" />
@@ -98,7 +98,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAgAAAAAIAAAEAAQAAAAAAAAAAAI=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="attribute" />
@@ -112,7 +112,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAGACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="subscriberMessage">
@@ -125,7 +125,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAgAAAAAAAAIAAAEEAABAAAAAAAABAI=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="attributes" />
@@ -133,9 +133,12 @@
   </Class>
   <Class Name="sideTable">
     <Position X="1.75" Y="7.75" Width="1.5" />
+    <Members>
+      <Field Name="tableField" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="table" />
@@ -151,7 +154,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAIBAAAAIAAAEAACAAAAAAAAAAAI=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="rows" />
@@ -171,7 +174,7 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>EAgAAAAAAAgAIQAAAAAAAAAIAAAEAAQAAAAAQAAAAAI=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="subscriber" />
@@ -185,7 +188,7 @@
     <Position X="7.25" Y="1.25" Width="2" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAIAAAAAAAEAAgAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Generated\YesMail\subscribeandsend.cs</FileName>
+      <FileName>Generated\YesMail\SubscribeAndSend\subscribeandsend.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
