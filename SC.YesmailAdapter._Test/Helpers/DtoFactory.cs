@@ -34,7 +34,7 @@ namespace SC.YesmailAdapter._Test.Helpers
                               Generic1 = seed,
                               Generic3 = seed,
                               Name1 = seed,
-                              Email = seed + "@tester.com",
+                              Email = seed.ToLower() + "@tester.com",
                               Generic2 = seed,
                               Url1 = seed,
                               ConsumerId = 12345678,
