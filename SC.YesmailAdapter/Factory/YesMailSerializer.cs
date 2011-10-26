@@ -2,11 +2,11 @@
 using System.IO;
 using System;
 
-namespace SC.YesMailAdapter.Factory 
+namespace SC.YesMailAdapter.Factory
 {
     public class YesMailSerializer
     {
-        private  const string NAMESPACE_PREFIX = "yesws";
+        private const string NAMESPACE_PREFIX = "yesws";
         private const string NAMESPACE = "https://services.yesmail.com";
 
         public static string CreateRequestBody(subscribeAndSend messageBody)
@@ -20,12 +20,21 @@ namespace SC.YesMailAdapter.Factory
             return requestBody;
         }
 
+        public static statusType DeserializeStatus(string xmlString)
+        {
+            var xmlSerializer = new XmlSerializer(typeof(statusType));
+            System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+            var bytes = encoding.GetBytes(xmlString);
+            var stream = new MemoryStream(bytes);
+            var statusType = (statusType)xmlSerializer.Deserialize(stream);
+            return statusType;
+        }
         private static string ReadStream(subscribeAndSend messageBody, MemoryStream stream)
         {
             string requestBody;
             InitializeStream(messageBody, stream);
 
-            
+
             using (var reader = new StreamReader(stream))
             {
                 requestBody = reader.ReadToEnd();

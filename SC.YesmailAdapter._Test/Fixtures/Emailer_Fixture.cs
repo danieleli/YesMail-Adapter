@@ -19,7 +19,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
         }
 
         [Test]
-        public void SendMail_Should_Return_StatusValidMessageStatusUrl()
+        public void SendMail_Should_Return_StatusSubmitted()
         {
             var emailHelper = new Emailer();
             var messageId = 1256210;
@@ -31,7 +31,30 @@ namespace SC.YesmailAdapter._Test.Fixtures
             var statusType = emailHelper.SendEmail(sendAndSubscribe);
 
             // Assert
+            _logger.Info("\nStatusNoWaitUrl\n-------------\n" + statusType.statusNoWaitURI);
             Assert.That(statusType.statusNoWaitURI, Contains.Substring(@"https://services.yesmail.com/enterprise/statusNoWait"));
+            Assert.That(statusType.statusCode, Is.EqualTo(StatusCode.SUBMITTED), "StatusCode");
+            
+        }
+
+        [Test]
+        public void CheckStatusForEmailWithBadPayload_Should_Return_StatusCodeError()
+        {
+            var emailHelper = new Emailer();
+            var messageId = 1256210;
+            var dto = DtoFactory.CreateEr1Message("test1");
+
+            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+
+            // Act
+            var initialStatus = emailHelper.SendEmail(sendAndSubscribe);
+            var checkedStatus = emailHelper.CheckStatus(initialStatus.statusNoWaitURI);
+            
+            
+            // Assert
+            _logger.Info("\nCheckStatus.Status\n-------------\n" + checkedStatus.statusMessage);
+            Assert.That(checkedStatus.statusCode, Is.EqualTo(StatusCode.ERROR), "StatusCode");
+
         }
 
         [Test]
@@ -58,23 +81,6 @@ namespace SC.YesmailAdapter._Test.Fixtures
             
             Assert.Fail("401 Not thrown.");
             //var response = emailHelper.SendEmail(dto, messageId);
-        }
-
-
-        [Test]
-        public void SendMailWithInvalidPayload_Should_ReturnStatusWithError()
-        {
-            var emailHelper = new Emailer();
-            var messageId = 1256210;
-            var dto = DtoFactory.CreateTestMessageDto("test1");
-
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
-
-            // Act
-            var response = emailHelper.SendEmail(sendAndSubscribe);
-            //var response = emailHelper.SendEmail(dto, messageId);
-
-            throw new NotImplementedException();
         }
 
     }

@@ -46,12 +46,13 @@ namespace SC.YesMailAdapter
             return "test";
         }
 
-        public string CheckStatus(string url)
+        public statusType CheckStatus(string url)
         {
             _logger.Info("\n\nCheck Email Status Url\n----------\n" + url);
             var requestExecutor = new HttpRequestCommand();
             var response = requestExecutor.ExecuteGet(url);
-            return response;
+            var status = YesMailSerializer.DeserializeStatus(response);
+            return status;
         }
 
         
@@ -64,12 +65,8 @@ namespace SC.YesMailAdapter
 
                 var response = MakeRequest(requestBody);
                 _logger.Debug("\n\nResponse: \n-----------\n" + response);
-                var xmlSerializer = new XmlSerializer(typeof (statusType));
-                System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-                var bytes = encoding.GetBytes(response);
-                var stream = new MemoryStream(bytes);
-                var statusType = (statusType)xmlSerializer.Deserialize(stream);
-                return statusType;
+                var status = YesMailSerializer.DeserializeStatus(response);
+                return status;
             }
             catch (Exception e)
             {
