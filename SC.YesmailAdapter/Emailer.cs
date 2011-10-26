@@ -10,6 +10,7 @@ using System;
 using SC.YesMailAdapter.Http;
 using log4net;
 using System.Xml;
+using System.Text;
 
 #endregion
 
@@ -19,17 +20,24 @@ namespace SC.YesMailAdapter
     {
 
         public static ILog _logger = LogManager.GetLogger(typeof (Emailer));
+        private ApiSettings _settings;
         public Emailer()
         {
             
+        }
+
+        public Emailer(ApiSettings settings)
+        {
+            // TODO: Complete member initialization
+            this._settings = settings;
         }
         
         /// <returns>Check Status Url</returns>
         public string MakeRequest(string requestBody)
         {
             _logger.Info("\n\nEmail RequestBody\n----------\n" + requestBody);
-            var requestExecutor = new HttpRequestCommand();
-            var response = requestExecutor.ExecutePost(requestBody);
+            var requestCommand = new HttpRequestCommand(_settings);
+            var response = requestCommand.ExecutePost(requestBody);
             return response;
         }
 
@@ -48,18 +56,20 @@ namespace SC.YesMailAdapter
 
         
 
-        public string SendEmail(subscribeAndSend subscribeAndSend)
+        public statusType SendEmail(subscribeAndSend subscribeAndSend)
         {
             try
             {
                 var requestBody = YesMailSerializer.CreateRequestBody(subscribeAndSend);
-                _logger.Info("\n\nEmail RequestBody\n----------\n" + requestBody);
-                
-                var httpHelper = new HttpRequestCommand();
-                var response = httpHelper.ExecutePost(requestBody);
+
+                var response = MakeRequest(requestBody);
                 _logger.Debug("\n\nResponse: \n-----------\n" + response);
-                
-                return response;
+                var xmlSerializer = new XmlSerializer(typeof (statusType));
+                System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+                var bytes = encoding.GetBytes(response);
+                var stream = new MemoryStream(bytes);
+                var statusType = (statusType)xmlSerializer.Deserialize(stream);
+                return statusType;
             }
             catch (Exception e)
             {

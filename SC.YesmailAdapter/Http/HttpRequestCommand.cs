@@ -24,7 +24,15 @@ namespace SC.YesMailAdapter.Http
 
         public HttpRequestCommand(ApiSettings apiSettings)
         {
-            _apiSettings = apiSettings;
+            if(apiSettings!=null)
+            {
+                _apiSettings = apiSettings;    
+            }
+            else
+            {
+                _apiSettings = new ApiSettings();
+            }
+            
         }
         
         #endregion -- fields and constructors --

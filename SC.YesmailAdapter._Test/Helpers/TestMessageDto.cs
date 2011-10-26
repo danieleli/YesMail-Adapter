@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SC.YesMailAdapter.Attributes;
 using SC.YesMailAdapter;
 
-namespace SC.YesmailAdapter._Test
+namespace SC.YesmailAdapter._Test.Helpers
 {
 
 

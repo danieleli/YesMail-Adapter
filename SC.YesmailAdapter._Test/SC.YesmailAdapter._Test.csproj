@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DtoFactory.cs" />
-    <Compile Include="EmailHelper_Fixture.cs" />
+    <Compile Include="Helpers\DtoFactory.cs" />
+    <Compile Include="Fixtures\Emailer_Fixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization_Fixture.cs" />
-    <Compile Include="TestMessageDto.cs" />
+    <Compile Include="Fixtures\Serialization_Fixture.cs" />
+    <Compile Include="Helpers\TestMessageDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

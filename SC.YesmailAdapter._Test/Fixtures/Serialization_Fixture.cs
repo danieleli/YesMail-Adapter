@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
-using SC.YesMailAdapter;
+﻿using NUnit.Framework;
 using SC.YesMailAdapter.Factory;
+using SC.YesmailAdapter._Test.Helpers;
 using log4net;
 
-namespace SC.YesmailAdapter._Test
+namespace SC.YesmailAdapter._Test.Fixtures
 {
     [TestFixture]
     public class Serialization_Fixture
