@@ -24,7 +24,7 @@ namespace SC.YesmailAdapter._Test.Helpers
         #endregion
     }
 
-    public class TestMessageDto : IMessageDto
+    public class TestMessageDto 
     {
         //[SideTableTolken(TableName = "api_transactions")]
         public string Brand { get; set; }
@@ -34,7 +34,7 @@ namespace SC.YesmailAdapter._Test.Helpers
         //public string TransactionType { get; set; }
 
         [SubscriberTolken]
-        public string ConsumerId { get; set; }
+        public int ConsumerId { get; set; }
         
         [SubscriberTolken]
         [SideTableTolken(TableName = "API_PROMOS")]
@@ -54,7 +54,7 @@ namespace SC.YesmailAdapter._Test.Helpers
         [SideTableTolken(TableName = "API_PROMOS")]
         public string Name2 { get; set; }
         [SideTableTolken(TableName = "API_PROMOS")]
-        public string ProductDescription { get; set; }
+        public string ProductDesc { get; set; }
         [SideTableTolken(TableName = "API_PROMOS")]
         public string RedemptionCode { get; set; }
         [SideTableTolken(TableName = "API_PROMOS")]

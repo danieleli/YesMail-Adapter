@@ -34,28 +34,68 @@ namespace SC.YesmailAdapter._Test.Fixtures
             _logger.Info("\nStatusNoWaitUrl\n-------------\n" + statusType.statusNoWaitURI);
             Assert.That(statusType.statusNoWaitURI, Contains.Substring(@"https://services.yesmail.com/enterprise/statusNoWait"));
             Assert.That(statusType.statusCode, Is.EqualTo(StatusCode.SUBMITTED), "StatusCode");
-            
         }
 
         [Test]
-        public void CheckStatusForEmailWithBadPayload_Should_Return_StatusCodeError()
+        public void CheckStatusForValidPayload_Should_Not_Return_Error()
         {
             var emailHelper = new Emailer();
             var messageId = 1256210;
             var dto = DtoFactory.CreateEr1Message("test1");
+            dto.Email = "danschlossberg@gmail.com";
 
             var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
             // Act
             var initialStatus = emailHelper.SendEmail(sendAndSubscribe);
-            var checkedStatus = emailHelper.CheckStatus(initialStatus.statusNoWaitURI);
-            
-            
+            var checkStatus = emailHelper.CheckStatus(initialStatus.statusURI);
+
+            // Assert
+            _logger.Info("\nStatusMessage: " + checkStatus.statusMessage);
+            _logger.Info("\nStatusNoWaitUrl\n-------------\n" + checkStatus.statusNoWaitURI);
+            Assert.That(checkStatus.statusCode, Is.Not.EqualTo(StatusCode.ERROR), "StatusCode");
+        }
+
+
+        [Test]
+        public void CheckStatusForEmailWithBadPayload_Should_Return_StatusCodeError()
+        {
+            // Arrange
+            var emailHelper = new Emailer();
+
+            // Act
+            var checkedStatus = emailHelper.CheckStatus(@"https://services.yesmail.com/enterprise/status/0fb77aa1-7335-4101-847f-f18aa82a5866");
+
+
             // Assert
             _logger.Info("\nCheckStatus.Status\n-------------\n" + checkedStatus.statusMessage);
             Assert.That(checkedStatus.statusCode, Is.EqualTo(StatusCode.ERROR), "StatusCode");
 
         }
+
+        [Test, Ignore]
+        public void PingTest()
+        {
+            // Arrange
+            var emailHelper = new Emailer();
+
+            var stop = false;
+
+            // Act
+            while(stop)
+            {
+                try
+                {
+                    var checkedStatus = emailHelper.CheckStatus("https://services.yesmail.com/enterprise/status/0fb77aa1-7335-4101-847f-f18aa82a5866");
+                    System.Threading.Thread.Sleep(45000);
+                    stop = true;
+                }
+                catch (Exception e){ }
+
+            }
+        }
+
+ 
 
         [Test]
         public void InvalidCredentials_Should_Throw401Exception()

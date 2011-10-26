@@ -75,7 +75,7 @@ namespace SC.YesMailAdapter.Factory
 
             var subscriber = CreateSubscriber(messageDto, allowResubscribe, division, subscriptionState);
             var sideTable = CreateSideTable(messageDto);
-
+            subscriber.subscriptionStateSpecified = true;
             var message = new subscribeAndSend
             {
                 subscriber = subscriber,

@@ -20,7 +20,7 @@ namespace SC.YesmailAdapter._Test.Helpers
                               Generic2 = "www.generic2" + seed + ".com",
                               Name1 = "name1" + seed,
                               Url1 = "www.url1" + seed + ".com",
-                              ConsumerId = "343223",
+                              ConsumerId = 343223,
                           };
 
             return dto;
@@ -34,15 +34,15 @@ namespace SC.YesmailAdapter._Test.Helpers
                               Generic1 = seed,
                               Generic3 = seed,
                               Name1 = seed,
-                              Email = seed,
+                              Email = seed + "@tester.com",
                               Generic2 = seed,
                               Url1 = seed,
-                              ConsumerId = seed,
+                              ConsumerId = 12345678,
                               ExpirationDate = seed,
                               MasterMessageId = seed,
                               //MessageType = seed,
                               Name2 = seed,
-                              ProductDescription = seed,
+                              ProductDesc = seed,
                               RedemptionCode = seed,
                               SecurityCode = seed,
                               Url2 = seed,
