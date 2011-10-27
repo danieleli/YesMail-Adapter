@@ -1,19 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMail._Test", "SC.YesMail._Test\SC.YesMail._Test.csproj", "{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMail", "SC.YesMail\SC.YesMail.csproj", "{B801ED42-6BDA-4A34-A8CC-E9C3A30A92C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesMailAdapter", "SC.YesmailAdapter\SC.YesMailAdapter.csproj", "{661564D7-1BDC-4F36-BAF5-FD4E358007C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareSingularity.YesMailClient", "SoftwareSingularity.YesMailClient\SoftwareSingularity.YesMailClient.csproj", "{F7C46173-B981-495C-A599-97E80AD169C7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.YesmailAdapter._Test", "SC.YesmailAdapter._Test\SC.YesmailAdapter._Test.csproj", "{810B6628-9855-4BD4-B194-BBC64C9211D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibrary.Foo", "CustomLibrary.Foo\CustomLibrary.Foo.csproj", "{98D6E651-920B-46AA-A5A7-792ED6FF4522}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibrary.Bar", "CustomLibrary.Bar\CustomLibrary.Bar.csproj", "{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B6622E22-E6F0-4717-ADDF-0B90076F7B8D}.Release|x86.ActiveCfg = Release|Any CPU
 		{B801ED42-6BDA-4A34-A8CC-E9C3A30A92C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B801ED42-6BDA-4A34-A8CC-E9C3A30A92C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B801ED42-6BDA-4A34-A8CC-E9C3A30A92C5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -55,16 +37,6 @@ Global
 		{661564D7-1BDC-4F36-BAF5-FD4E358007C2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{661564D7-1BDC-4F36-BAF5-FD4E358007C2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{661564D7-1BDC-4F36-BAF5-FD4E358007C2}.Release|x86.ActiveCfg = Release|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F7C46173-B981-495C-A599-97E80AD169C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -75,26 +47,6 @@ Global
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{810B6628-9855-4BD4-B194-BBC64C9211D2}.Release|x86.ActiveCfg = Release|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{98D6E651-920B-46AA-A5A7-792ED6FF4522}.Release|x86.ActiveCfg = Release|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{94966E9A-656C-41A7-8EE1-FF78BC5B5D09}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
