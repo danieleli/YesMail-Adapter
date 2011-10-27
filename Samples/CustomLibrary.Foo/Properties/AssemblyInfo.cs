@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SoftwareSingularity.YesMailClient")]
+[assembly: AssemblyTitle("CustomLibrary.Foo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("SoftwareSingularity.YesMailClient")]
+[assembly: AssemblyProduct("CustomLibrary.Foo")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6e099960-2529-4aa1-874e-f6b8be833c48")]
+[assembly: Guid("961b9238-a570-4ca2-90c4-fb7a1237b3c6")]
 
 // Version information for an assembly consists of the following four values:
 //

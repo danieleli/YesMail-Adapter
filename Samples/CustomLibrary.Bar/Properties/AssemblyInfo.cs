@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("yesmailTriggeredEmail._Test")]
+[assembly: AssemblyTitle("CustomLibrary.Bar")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("yesmailTriggeredEmail._Test")]
+[assembly: AssemblyProduct("CustomLibrary.Bar")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2f684415-98a9-45d6-971f-590431672a3e")]
+[assembly: Guid("130dde51-3a32-41af-8af8-aa056a5922ae")]
 
 // Version information for an assembly consists of the following four values:
 //

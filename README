@@ -1,1 +1,58 @@
 If you are having difficulty with auth, try cleaning and recompile.
+
+USAGE
+-----
+    
+    var emailHelper = new Emailer();
+    var messageId = 12345678;
+    object dto = GetAnyObject()
+
+    // map your object to yesmail object
+    var yesmailObject = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+
+    
+    var initialStatus = emailHelper.SendEmail(yesmailObject);    
+    Assert.That(initialStatus.statusCode, Is.Not.EqualTo(StatusCode.SUBMITTED), "StatusCode");
+
+    // some time later ...
+    var checkStatus = emailHelper.CheckStatus(initialStatus.statusURI);
+    Assert.That(checkStatus.statusCode, Is.Not.EqualTo(StatusCode.ERROR), "StatusCode");
+
+    // more info.
+    _logger.Info("\nStatusNoWaitUrl\n-------------\n" + checkStatus.statusNoWaitURI);
+    _logger.Info("\nStatusNoWaitUrl\n-------------\n" + checkStatus.statusCode);
+    
+
+SAMPLE SOURCE OBJECT
+--------------------
+
+This can be any model in your library.  Just add attributes to your properties to map to 
+
+a. subscriber key/value pair or 
+b. sidetable key/value pair
+
+   public class TestMessageDto 
+    {
+        
+        [SubscriberTolken]
+        [SideTableTolken]
+        public string Email { get; set; }
+
+
+        [SideTableTolken]
+        public string Generic1 { get; set; }
+        [SideTableTolken]
+        public string Generic2 { get; set; }
+        [SideTableTolken]
+        public string Generic3 { get; set; }
+        [SideTableTolken]
+        public string Name1 { get; set; }
+        [SideTableTolken]
+        public string Name2 { get; set; }
+        [SideTableTolken]
+        public string ProductDesc { get; set; }
+        [SideTableTolken]
+        public string Url1 { get; set; }
+        [SideTableTolken]
+        public string Url2 { get; set; }
+    }

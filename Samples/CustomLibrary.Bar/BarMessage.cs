@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SC.YesMail.Direct
+namespace CustomLibrary.Bar
 {
-    public class Class1
+    public class BarMessage
     {
     }
 }
