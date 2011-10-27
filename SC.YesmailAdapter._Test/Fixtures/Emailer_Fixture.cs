@@ -6,7 +6,7 @@ using System.Threading;
 using NUnit.Framework;
 using SC.YesMailAdapter;
 using SC.YesMailAdapter.Configuration;
-using SC.YesMailAdapter.Factory;
+using SC.YesMailAdapter.Mappers;
 using SC.YesmailAdapter._Test.Helpers;
 using log4net;
 using log4net.Config;
@@ -52,7 +52,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
 
 
         [Test]
-        public void _1_InvalidCredentials_Should_Throw401Exception()
+        public void _1_InvalidApiCredentials_Should_Throw401Exception()
         {
             var settings = new ApiSettings();
             settings.Password = "badpassword";
@@ -60,7 +60,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
             var messageId = 1256210;
             var dto = DtoFactory.CreateEr1Message(RandomGenerator.RandomString(6));
 
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+            var sendAndSubscribe = YesMailMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
             // Act
             try
@@ -101,7 +101,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
             var messageId = 1256210;
             var dto = DtoFactory.CreateEr1Message(RandomGenerator.RandomString(6));
 
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+            var sendAndSubscribe = YesMailMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
             // Act
             var statusType = emailHelper.SendEmail(sendAndSubscribe);
@@ -120,7 +120,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
             var messageId = 1256210;
             var dto = DtoFactory.CreateEr1Message(RandomGenerator.RandomString(6));
 
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+            var sendAndSubscribe = YesMailMapper.CreateSendAndSubcribeMessage(dto, messageId);
 
             // Act
             var initialStatus = emailHelper.SendEmail(sendAndSubscribe);

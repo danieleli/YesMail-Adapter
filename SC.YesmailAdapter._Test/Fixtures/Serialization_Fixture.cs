@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SC.YesMailAdapter.Factory;
+using SC.YesMailAdapter.Mappers;
 using SC.YesmailAdapter._Test.Helpers;
 using log4net;
 
@@ -17,7 +17,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
             var dto = DtoFactory.CreateTestMessageDto("test1");
 
             // Act
-            var sendAndSubscribe = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+            var sendAndSubscribe = YesMailMapper.CreateSendAndSubcribeMessage(dto, messageId);
             var serializedObject = YesMailSerializer.CreateRequestBody(sendAndSubscribe);
             _logger.Info(serializedObject);
         }

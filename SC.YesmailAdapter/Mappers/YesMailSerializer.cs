@@ -1,8 +1,7 @@
 ﻿using System.Xml.Serialization;
 using System.IO;
-using System;
 
-namespace SC.YesMailAdapter.Factory
+namespace SC.YesMailAdapter.Mappers
 {
     public class YesMailSerializer
     {
