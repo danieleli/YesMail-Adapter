@@ -6,7 +6,7 @@ USAGE
 // Arrange
 var emailService = new YesmailService();
 var messageId = 1256210;
-var dto = DtoFactory.CreateEr1Message(RandomGenerator.RandomString(6));
+var dto = GetAnyDto()
 
 // Act
 var statusType = emailService.SendEmail(dto, messageId);
