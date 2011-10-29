@@ -14,7 +14,6 @@ USAGE
 
 
  // Assert
- Assert.That(statusType.statusNoWaitURI, Contains.Substring(@"https://services.yesmail.com/enterprise/statusNoWait"));
  Assert.That(statusType.statusCode, Is.EqualTo(StatusCode.SUBMITTED), "StatusCode");
 
 
