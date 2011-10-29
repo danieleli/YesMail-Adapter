@@ -21,8 +21,9 @@ USAGE
 SAMPLE DTO
 ----------
 
-This can be any OBJECT in your library.  Just user the DECORATOR PATTERN and 
-add ATTRIBUTES to your PROPERTIES to map:
+This can be any OBJECT in your library.  
+
+Just use the DECORATOR PATTERN and add ATTRIBUTES to your PROPERTIES to map:
 
 a. subscriber - key/value pair
 b. sidetable - key/value pair
