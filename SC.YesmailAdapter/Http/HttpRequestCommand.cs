@@ -15,7 +15,7 @@ namespace SC.YesMailAdapter.Http
     {
         #region -- fields and constructors --
 
-        public static ILog _logger = LogManager.GetLogger(typeof(Emailer));
+        public static ILog _logger = LogManager.GetLogger(typeof(YesmailService));
         private readonly ApiSettings _apiSettings;
 
         public HttpRequestCommand()

@@ -52,7 +52,7 @@
     </Compile>
     <Compile Include="Mappers\SubcriberTolkenMapper.cs" />
     <Compile Include="Configuration\ApiSettings.cs" />
-    <Compile Include="Emailer.cs" />
+    <Compile Include="YesmailService.cs" />
     <Compile Include="Mappers\SideTableTolkenMapper.cs" />
     <Compile Include="Generated\YesMail\Status\status.cs">
       <DependentUpon>status.xsd</DependentUpon>

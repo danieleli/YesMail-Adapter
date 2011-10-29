@@ -3,24 +3,19 @@ If you are having difficulty with auth, try cleaning and recompile.
 USAGE
 -----
     
-    var emailHelper = new Emailer();
-    var messageId = 12345678;
-    object dto = GetAnyObject()
+		// Arrange
+		var emailService = new YesmailService();
+		var messageId = 1256210;
+		var dto = DtoFactory.CreateEr1Message(RandomGenerator.RandomString(6));
 
-    // map your object to yesmail object
-    var yesmailObject = SubscribeAndSendMapper.CreateSendAndSubcribeMessage(dto, messageId);
+		// Act
+		var statusType = emailService.SendEmail(dto, messageId);
 
-    
-    var initialStatus = emailHelper.SendEmail(yesmailObject);    
-    Assert.That(initialStatus.statusCode, Is.Not.EqualTo(StatusCode.SUBMITTED), "StatusCode");
-
-    // some time later ...
-    var checkStatus = emailHelper.CheckStatus(initialStatus.statusURI);
-    Assert.That(checkStatus.statusCode, Is.Not.EqualTo(StatusCode.ERROR), "StatusCode");
-
-    // more info.
-    _logger.Info("\nStatusNoWaitUrl\n-------------\n" + checkStatus.statusNoWaitURI);
-    _logger.Info("\nStatusNoWaitUrl\n-------------\n" + checkStatus.statusCode);
+		// Assert
+		_logger.Info("\nStatusNoWaitUrl\n-------------\n" + statusType.statusNoWaitURI);
+		Assert.That(statusType.statusNoWaitURI,
+					Contains.Substring(@"https://services.yesmail.com/enterprise/statusNoWait"));
+		Assert.That(statusType.statusCode, Is.EqualTo(StatusCode.SUBMITTED), "StatusCode");
     
 
 SAMPLE SOURCE OBJECT
