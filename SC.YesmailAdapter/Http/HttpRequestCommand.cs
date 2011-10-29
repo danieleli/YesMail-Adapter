@@ -14,48 +14,52 @@ namespace SC.YesMailAdapter.Http
     public class HttpRequestCommand
     {
         #region -- fields and constructors --
-        
-        public static ILog _logger = LogManager.GetLogger(typeof (Emailer));
+
+        public static ILog _logger = LogManager.GetLogger(typeof(Emailer));
         private readonly ApiSettings _apiSettings;
 
-        public HttpRequestCommand() : this(new ApiSettings())
+        public HttpRequestCommand()
+            : this(new ApiSettings())
         {
         }
 
         public HttpRequestCommand(ApiSettings apiSettings)
         {
-            if(apiSettings!=null)
+            if (apiSettings != null)
             {
-                _apiSettings = apiSettings;    
+                _apiSettings = apiSettings;
             }
             else
             {
                 _apiSettings = new ApiSettings();
             }
-            
+
         }
-        
+
         #endregion -- fields and constructors --
 
         public string ExecutePost(string messageBody)
         {
-            var webRequest = CreateWebRequest(_apiSettings.Url, "POST", _apiSettings);
-            LogRequest(webRequest);
-            var rtnValue = RequestHelper.GetResponse(webRequest, messageBody);
-            return rtnValue;
+            return ExecuteRequest(_apiSettings.Url, "POST");
         }
 
-        public string ExecuteGet(string url)
+        public string ExecuteGet(string uri)
         {
-            var webRequest = CreateWebRequest(url, "GET", _apiSettings);
-            LogRequest(webRequest);
-            var rtnValue = RequestHelper.GetResponse(webRequest);
-            return rtnValue;
+            return ExecuteRequest(uri, "GET");
         }
 
-        private static HttpWebRequest CreateWebRequest(string url, string httpMethod, ApiSettings settings)
+        private string ExecuteRequest(string uri, string httpMethod)
         {
-            var webRequest = RequestHelper.CreateWebRequest(url, httpMethod, "application/xml");
+            var webRequest = CreateWebRequest(uri, httpMethod, _apiSettings);
+            var rtnString = RequestHelper.GetResponse(webRequest);
+
+            return rtnString;
+        }
+
+        private static HttpWebRequest CreateWebRequest(string uri, string httpMethod, ApiSettings settings)
+        {
+            var webRequest = CreateWebRequest(uri, httpMethod, "application/xml");
+
             if (settings.UseProxy)
             {
                 SetProxy(webRequest, settings.ProxySettings);
@@ -67,9 +71,22 @@ namespace SC.YesMailAdapter.Http
             SetCredentialCache(webRequest, settings.Url, settings.Domain, settings.UserName,
                                settings.Password);
 
+            LogRequest(webRequest);
+
             return webRequest;
         }
-        
+
+        private static HttpWebRequest CreateWebRequest(string uri, string requestMethod, string contentType)
+        {
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            webRequest.KeepAlive = false;
+            webRequest.Method = requestMethod;
+            webRequest.ContentType = contentType;
+            webRequest.AllowAutoRedirect = false;
+
+            return webRequest;
+        }
+
         private static void SetProxy(HttpWebRequest webRequest, ProxySettings proxySettings)
         {
             webRequest.Proxy = new WebProxy(proxySettings.Url, proxySettings.Port);
@@ -81,8 +98,8 @@ namespace SC.YesMailAdapter.Http
         {
             //Set Authorization ID
             var userCreds = settings.Domain + '/' + settings.UserName + ':' + settings.Password;
-            var authorizationId = "Basic " + RequestHelper.EncodeTo64(userCreds);
-            var headers = new NameValueCollection {{@"Authorization", authorizationId}};
+            var authorizationId = "Basic " + EncodeTo64(userCreds);
+            var headers = new NameValueCollection { { @"Authorization", authorizationId } };
             return headers;
         }
 
@@ -106,6 +123,13 @@ namespace SC.YesMailAdapter.Http
 
 
             _logger.Debug(sb.ToString());
+        }
+
+        public static string EncodeTo64(string toEncode)
+        {
+            var toEncodeAsBytes = Encoding.ASCII.GetBytes(toEncode);
+            var returnValue = Convert.ToBase64String(toEncodeAsBytes);
+            return returnValue;
         }
     }
 }

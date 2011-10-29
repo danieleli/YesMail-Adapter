@@ -18,7 +18,7 @@ namespace SC.YesmailAdapter._Test.Fixtures
 
             // Act
             var sendAndSubscribe = YesMailMapper.CreateSendAndSubcribeMessage(dto, messageId);
-            var serializedObject = YesMailSerializer.CreateRequestBody(sendAndSubscribe);
+            var serializedObject = YesMailSerializer.Serialize(sendAndSubscribe);
             _logger.Info(serializedObject);
         }
     }

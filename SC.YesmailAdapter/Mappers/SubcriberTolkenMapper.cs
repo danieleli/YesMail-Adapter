@@ -4,7 +4,7 @@ using SC.YesMailAdapter.Attributes;
 
 namespace SC.YesMailAdapter.Mappers
 {
-    public class AttributeMapper
+    public class SubcriberTolkenMapper
     {
         public static attributesAttribute[] FlattenPropertiesToNameValueList(object dto)
         {

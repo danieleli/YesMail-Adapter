@@ -4,7 +4,7 @@ using SC.YesMailAdapter.Attributes;
 
 namespace SC.YesMailAdapter.Mappers
 {
-    public class KeyValueMapper
+    public class SideTableTolkenMapper
     {
         public static keyValue[] FlattenPropertiesToNameValueList(object dto)
         {

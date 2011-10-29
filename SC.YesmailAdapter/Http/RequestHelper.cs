@@ -1,10 +1,9 @@
 ﻿#region Usings
 
-using System;
 using System.Collections.Specialized;
 using System.IO;
-using System.Text;
 using System.Net;
+using System.Text;
 
 #endregion
 
@@ -15,11 +14,11 @@ namespace SC.YesMailAdapter.Http
         public static string GetResponse(HttpWebRequest webRequest, string requestBody)
         {
             string response = null;
-            if(!string.IsNullOrEmpty(requestBody))
+            if (!string.IsNullOrEmpty(requestBody))
             {
-                WriteRequestBody(ref webRequest, requestBody);    
+                WriteRequestBody(ref webRequest, requestBody);
             }
-            
+
             using (var httpWebResponse = (HttpWebResponse) webRequest.GetResponse())
             {
                 var encoding = Encoding.GetEncoding(1252); //1252 for Windows operating system (windows-1252);
@@ -36,20 +35,10 @@ namespace SC.YesMailAdapter.Http
 
         public static string GetResponse(HttpWebRequest webRequest)
         {
-            string response = GetResponse(webRequest, null);
-            return response;
+            return GetResponse(webRequest, null);
         }
 
-        public static HttpWebRequest CreateWebRequest(string uri, string requestMethod, string contentType)
-        {
-            var webRequest = (HttpWebRequest) WebRequest.Create(uri);
-            webRequest.KeepAlive = false;
-            webRequest.Method = requestMethod;
-            webRequest.ContentType = contentType;
-            webRequest.AllowAutoRedirect = false;
 
-            return webRequest;
-        }
 
         public static void SetHeaders(NameValueCollection headers, HttpWebRequest webrequest)
         {
@@ -63,13 +52,6 @@ namespace SC.YesMailAdapter.Http
                 keyvalue = headers[i];
                 webrequest.Headers.Add(key, keyvalue);
             }
-        }
-
-        public static string EncodeTo64(string toEncode)
-        {
-            var toEncodeAsBytes = Encoding.ASCII.GetBytes(toEncode);
-            var returnValue = Convert.ToBase64String(toEncodeAsBytes);
-            return returnValue;
         }
 
 

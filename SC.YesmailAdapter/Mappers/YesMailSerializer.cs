@@ -5,51 +5,65 @@ namespace SC.YesMailAdapter.Mappers
 {
     public class YesMailSerializer
     {
-        private const string NAMESPACE_PREFIX = "yesws";
-        private const string NAMESPACE = "https://services.yesmail.com";
-
-        public static string CreateRequestBody(subscribeAndSend messageBody)
+        public static string Serialize(subscribeAndSend snsMessage)
         {
             var requestBody = string.Empty;
 
             using (var stream = new MemoryStream())
             {
-                requestBody = ReadStream(messageBody, stream);
+                StreamHelper.InitializeStream(snsMessage, stream);
+                requestBody = StreamHelper.ReadStream(stream);
             }
             return requestBody;
         }
 
         public static statusType DeserializeStatus(string xmlString)
         {
-            var xmlSerializer = new XmlSerializer(typeof(statusType));
-            System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-            var bytes = encoding.GetBytes(xmlString);
-            var stream = new MemoryStream(bytes);
-            var statusType = (statusType)xmlSerializer.Deserialize(stream);
-            return statusType;
-        }
-        private static string ReadStream(subscribeAndSend messageBody, MemoryStream stream)
-        {
-            string requestBody;
-            InitializeStream(messageBody, stream);
+            statusType rtnStatus = null;
 
-
-            using (var reader = new StreamReader(stream))
+            using (var stream = StreamHelper.GetStream(xmlString))
             {
-                requestBody = reader.ReadToEnd();
+                var xmlSerializer = new XmlSerializer(typeof(statusType));
+                rtnStatus = (statusType)xmlSerializer.Deserialize(stream);    
             }
-            return requestBody;
+
+            return rtnStatus;
         }
 
-        private static void InitializeStream(subscribeAndSend messageBody, MemoryStream stream)
+        private static class StreamHelper
         {
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add(NAMESPACE_PREFIX, NAMESPACE);
+            private const string NAMESPACE_PREFIX = "yesws";
+            private const string NAMESPACE = "https://services.yesmail.com";
 
-            var serializer = new XmlSerializer(typeof(subscribeAndSend));
-            serializer.Serialize(stream, messageBody, namespaces);
-            //serializer.Serialize(stream, messageBody);
-            stream.Seek(0, SeekOrigin.Begin);
+            internal static MemoryStream GetStream(string xmlString)
+            {
+                System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+                var bytes = encoding.GetBytes(xmlString);
+                return new MemoryStream(bytes);
+            }
+
+            internal static string ReadStream(MemoryStream stream)
+            {
+                string requestBody;
+
+                using (var reader = new StreamReader(stream))
+                {
+                    requestBody = reader.ReadToEnd();
+                }
+
+                return requestBody;
+            }
+
+            internal static void InitializeStream(subscribeAndSend messageBody, MemoryStream stream)
+            {
+                var namespaces = new XmlSerializerNamespaces();
+                namespaces.Add(NAMESPACE_PREFIX, NAMESPACE);
+
+                var serializer = new XmlSerializer(typeof (subscribeAndSend));
+                serializer.Serialize(stream, messageBody, namespaces);
+
+                stream.Seek(0, SeekOrigin.Begin);
+            }
         }
 
     }

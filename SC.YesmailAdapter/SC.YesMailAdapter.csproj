@@ -44,12 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappers\AttributeMapper.cs" />
-    <Compile Include="Attributes\SideTableTolkenAttribute.cs" />
-    <Compile Include="Attributes\SubscriberTolkenAttribute.cs" />
+    <Compile Include="Decorators\SideTableTolkenAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Decorators\SubscriberTolkenAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappers\SubcriberTolkenMapper.cs" />
     <Compile Include="Configuration\ApiSettings.cs" />
     <Compile Include="Emailer.cs" />
-    <Compile Include="Mappers\KeyValueMapper.cs" />
+    <Compile Include="Mappers\SideTableTolkenMapper.cs" />
     <Compile Include="Generated\YesMail\Status\status.cs">
       <DependentUpon>status.xsd</DependentUpon>
     </Compile>
@@ -91,6 +95,7 @@
   <ItemGroup>
     <Content Include="Generated\YesMail\Status\Sample.Status.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

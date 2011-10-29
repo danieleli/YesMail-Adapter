@@ -61,7 +61,7 @@ namespace SC.YesMailAdapter
         {
             try
             {
-                var requestBody = YesMailSerializer.CreateRequestBody(subscribeAndSend);
+                var requestBody = YesMailSerializer.Serialize(subscribeAndSend);
 
                 var response = MakeRequest(requestBody);
                 _logger.Debug("\n\nResponse: \n-----------\n" + response);
